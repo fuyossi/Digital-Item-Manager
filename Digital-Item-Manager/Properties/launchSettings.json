@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Digital-Item-Manager (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Digital-Item-Manager (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
