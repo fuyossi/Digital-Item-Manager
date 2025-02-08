@@ -10,6 +10,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <HyperlinkButton HorizontalAlignment="Center" Margin="0,60,0,0" Content="fuyossi on Github" NavigateUri="https://github.com/fuyossi" />
+            <HyperlinkButton HorizontalAlignment="Center" Content="This app source on Github" NavigateUri="https://github.com/fuyossi/Digital-Item-Manager" />
 
+            <TextBlock Margin="0,10,0,0" TextAlignment="Center"><Bold>Digital Item Manager</Bold></TextBlock>
+            <TextBlock TextAlignment="Center">Copyright (c) 2025 fuyossi</TextBlock>
+            <TextBlock TextAlignment="Center">Released under the MIT license</TextBlock>
+            <HyperlinkButton HorizontalAlignment="Center" Content="https://opensource.org/license/mit" NavigateUri="https://opensource.org/licenses/mit-license.php" />
+        </StackPanel>
     </Grid>
 </Page>
