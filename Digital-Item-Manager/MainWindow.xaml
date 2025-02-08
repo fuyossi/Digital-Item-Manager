@@ -7,9 +7,52 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Title="Digital-Item-Manager">
+    Title="Digital Item Manager">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="AppTitleBar">
+            <Image Source="icon.ico"
+                   HorizontalAlignment="Left" 
+                   Width="16" Height="16" 
+                   Margin="8,0"/>
+            <TextBlock x:Name="AppTitleTextBlock" Text="Digital Item Manager"
+                       TextWrapping="NoWrap"
+                       Style="{StaticResource CaptionTextBlockStyle}" 
+                       VerticalAlignment="Center"
+                       Margin="28,0,0,0"/>
+        </Grid>
+
+        <NavigationView Grid.Row="1" x:Name="navView" PaneDisplayMode="LeftCompact" IsBackButtonVisible="Collapsed" ItemInvoked="navView_ItemInvoked">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="App" Tag="app">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE74C;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="File" Tag="file">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE7C3;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Website" Tag="website">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE909;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem Content="Settings" Tag="settings">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE713;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.FooterMenuItems>
+            <Frame x:Name="contentFrame"/>
+        </NavigationView>
+    </Grid>
 </Window>

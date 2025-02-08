@@ -26,11 +26,44 @@ namespace Digital_Item_Manager
         public MainWindow()
         {
             this.InitializeComponent();
+
+            ExtendsContentIntoTitleBar = true;
+            SetTitleBar(AppTitleBar);
+
+            navView.SelectedItem = navView.MenuItems[0];
+            navView.IsSettingsVisible = false;
+            NavigateToPage("app");
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private void navView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-            myButton.Content = "Clicked";
+            string tag = args.InvokedItemContainer.Tag.ToString()!;
+            NavigateToPage(tag);
+        }
+
+        private void NavigateToPage(string tag)
+        {
+            Type pageType = null;
+            switch (tag)
+            {
+                case "app":
+                    pageType = typeof(AppPage);
+                    break;
+                case "file":
+                    pageType = typeof(FilePage);
+                    break;
+                case "website":
+                    pageType = typeof(WebsitePage);
+                    break;
+                case "settings":
+                    pageType = typeof(SettingsPage);
+                    break;
+            }
+
+            if (pageType != null && contentFrame.CurrentSourcePageType != pageType)
+            {
+                contentFrame.Navigate(pageType);
+            }
         }
     }
 }
