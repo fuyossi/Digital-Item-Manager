@@ -26,6 +26,15 @@ namespace Digital_Item_Manager
         public SettingsPage()
         {
             this.InitializeComponent();
+
+            if (IntPtr.Size == 4)
+            {
+                appVersion.Text += " (x86)";
+            }
+            else
+            {
+                appVersion.Text += " (x64)";
+            }
         }
     }
 }
